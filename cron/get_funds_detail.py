@@ -1,3 +1,5 @@
+import base
+
 import sys
 import pandas as pd
 import json
@@ -9,7 +11,6 @@ import numpy as np
 import urllib
 
 # my private modules
-sys.path.append('/home/liusida/ipython/fund_scanner/packages/')
 import fund_scanner.database
 import fund_scanner.readurl
 
