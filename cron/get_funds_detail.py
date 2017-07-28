@@ -36,22 +36,25 @@ def read_funds_detail( funds_code='000001' ):
     ret['recent_total']   = soup.select('div.dataOfFund .dataItem03 dd')[2].select('span.ui-num')[0].text
     ret['funds_price'] = soup.select('div.dataOfFund .dataItem02 dd')[0].select('span.ui-num')[0].text
     ret['funds_price_adjust'] = soup.select('div.dataOfFund .dataItem03 dd')[0].select('span.ui-num')[0].text
-    match = re.search('基金规模：([\d\.]+)亿元', soup.select('div.infoOfFund td')[1].text)
-    ret['funds_amount'] = match.group(1)
+    try:
+        match = re.search('基金规模：([\d\.]+)亿元', soup.select('div.infoOfFund td')[1].text)
+        ret['funds_amount'] = match.group(1)
+    except:
+        ret['funds_amount'] = 0
     return ret
 
 
 with fund_scanner.database.get_connection() as cursor:
 
     #Read records
-    sql = 'select * from `funds` where 1 order by `update_time` limit 0,1;'
+    sql = 'select * from `funds` where 1 order by `update_time` limit 0,2;'
     cursor.execute(sql)
     result = cursor.fetchall()
 
     #fetch the detail data
     for item in result:
         dic = read_funds_detail(item['funds_code'])
-        time.sleep(2)
+        time.sleep(3)
         sql = 'update `funds` set `funds_type`=%s, `funds_start_date`=%s, `update_time`=Now() where `funds_code`=%s;'
         cursor.execute(sql, (dic['funds_type'], dic['funds_start_date'], item['funds_code']))
 
