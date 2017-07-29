@@ -47,38 +47,43 @@ def read_funds_detail( funds_code='000001' ):
 with fund_scanner.database.get_connection() as cursor:
 
     #Read records
-    sql = 'select * from `funds` where 1 order by `update_time` limit 0,2;'
+    sql = 'select * from `funds` where 1 order by `update_time` limit 0,10;'
     cursor.execute(sql)
     result = cursor.fetchall()
 
     #fetch the detail data
     for item in result:
-        dic = read_funds_detail(item['funds_code'])
-        time.sleep(3)
-        sql = 'update `funds` set `funds_type`=%s, `funds_start_date`=%s, `update_time`=Now() where `funds_code`=%s;'
-        cursor.execute(sql, (dic['funds_type'], dic['funds_start_date'], item['funds_code']))
+        try:
+            dic = read_funds_detail(item['funds_code'])
+            time.sleep(1)
+            sql = 'update `funds` set `funds_type`=%s, `funds_start_date`=%s, `update_time`=Now() where `funds_code`=%s;'
+            cursor.execute(sql, (dic['funds_type'], dic['funds_start_date'], item['funds_code']))
 
-        columns_to_update = ['funds_price', 'funds_price_adjust', 'funds_amount',
-                            'funds_recent_1_month', 'funds_recent_3_month', 'funds_recent_6_month',
-                            'funds_recent_1_year', 'funds_recent_3_year', 'funds_return_total']
+            columns_to_update = ['funds_price', 'funds_price_adjust', 'funds_amount',
+                                'funds_recent_1_month', 'funds_recent_3_month', 'funds_recent_6_month',
+                                'funds_recent_1_year', 'funds_recent_3_year', 'funds_return_total']
 
-        sql = 'INSERT INTO `funds_update` ' +\
-                '(`funds_id`, `'+('`, `'.join(columns_to_update))+'`, `update_time`) '+\
-                'VALUES ('+'%s,'*10+' Now()) ON DUPLICATE KEY UPDATE '+\
-                '`'+('`=%s, `'.join(columns_to_update))+'`=%s, `update_time`=Now();'
+            sql = 'INSERT INTO `funds_update` ' +\
+                    '(`funds_id`, `'+('`, `'.join(columns_to_update))+'`, `update_time`) '+\
+                    'VALUES ('+'%s,'*10+' Now()) ON DUPLICATE KEY UPDATE '+\
+                    '`'+('`=%s, `'.join(columns_to_update))+'`=%s, `update_time`=Now();'
 
-        funds_price = base.extract_percentage(dic,'funds_price')
-        funds_price_adjust = base.extract_percentage(dic,'funds_price_adjust')
-        funds_amount = base.extract_percentage(dic,'funds_amount')
-        recent_1_month = base.extract_percentage(dic,'recent_1_month')
-        recent_3_month = base.extract_percentage(dic,'recent_3_month')
-        recent_6_month = base.extract_percentage(dic,'recent_6_month')
-        recent_1_year = base.extract_percentage(dic,'recent_1_year')
-        recent_3_year = base.extract_percentage(dic,'recent_3_year')
-        recent_total = base.extract_percentage(dic,'recent_total')
-        cursor.execute(sql, (int(item['funds_id']), 
-                             funds_price, funds_price_adjust, funds_amount,
-                             recent_1_month, recent_3_month, recent_6_month, recent_1_year, recent_3_year, recent_total, 
-                             funds_price, funds_price_adjust, funds_amount,
-                             recent_1_month, recent_3_month, recent_6_month, recent_1_year, recent_3_year, recent_total))
+            funds_price = base.extract_percentage(dic,'funds_price')
+            funds_price_adjust = base.extract_percentage(dic,'funds_price_adjust')
+            funds_amount = base.extract_percentage(dic,'funds_amount')
+            recent_1_month = base.extract_percentage(dic,'recent_1_month')
+            recent_3_month = base.extract_percentage(dic,'recent_3_month')
+            recent_6_month = base.extract_percentage(dic,'recent_6_month')
+            recent_1_year = base.extract_percentage(dic,'recent_1_year')
+            recent_3_year = base.extract_percentage(dic,'recent_3_year')
+            recent_total = base.extract_percentage(dic,'recent_total')
+            cursor.execute(sql, (int(item['funds_id']), 
+                                 funds_price, funds_price_adjust, funds_amount,
+                                 recent_1_month, recent_3_month, recent_6_month, recent_1_year, recent_3_year, recent_total, 
+                                 funds_price, funds_price_adjust, funds_amount,
+                                 recent_1_month, recent_3_month, recent_6_month, recent_1_year, recent_3_year, recent_total))
 
+        except:
+            sql = 'update `funds` set `update_time`=Now() where `funds_code`=%s;'
+            cursor.execute(sql, (item['funds_code']))
+            
