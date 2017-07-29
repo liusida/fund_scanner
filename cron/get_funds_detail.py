@@ -15,6 +15,7 @@ import fund_scanner.common_tools.database as db
 import fund_scanner.common_tools.readurl
 import fund_scanner.common_tools.others as o
 
+items_per_call = 1
 
 url = 'http://fund.eastmoney.com/%s.html'
 
@@ -48,7 +49,7 @@ def read_funds_detail( funds_code='000001' ):
 with db.get_connection() as cursor:
 
     #Read records
-    sql = 'select * from `funds` where 1 order by `update_time` limit 0,10;'
+    sql = 'select * from `funds` where 1 order by `update_time` limit 0,%d;'%items_per_call
     cursor.execute(sql)
     result = cursor.fetchall()
 

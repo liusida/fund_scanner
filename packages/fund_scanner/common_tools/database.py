@@ -6,7 +6,7 @@ parameters = {
 	'user': 'funds',
 	'password': 'funds888',
 	'db': 'funds',
-	'charset': ['utf-8','utf8']
+	'charset': 'utf8'
 }
 
 def get_connection():
@@ -15,11 +15,12 @@ def get_connection():
                                  user=parameters['user'],
                                  password=parameters['password'],
                                  db=parameters['db'],
-                                 charset=parameters['charset'][0],
+                                 charset=parameters['charset'],
                                  cursorclass=pymysql.cursors.DictCursor)
     return connection
 
 def get_sqlalchemy_engine():
+
 	return sqlalchemy.create_engine("mysql+pymysql://%s:%s@%s/%s?charset=%s"%(
 		parameters['user'], parameters['password'], parameters['host'], 
-		parameters['db'], parameters['charset'][1]))
+		parameters['db'], parameters['charset']))
