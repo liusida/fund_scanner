@@ -1,26 +1,27 @@
 import base
 
 import sys
-import pandas as pd
 import json
 from collections import namedtuple
 import re
 import ngender
 from bs4 import BeautifulSoup
+import pandas as pd
 import numpy as np
-import urllib
 import time
 
 # my private modules
-import fund_scanner.database
-import fund_scanner.readurl
+import fund_scanner.common_tools.database as db
+import fund_scanner.common_tools.readurl
+import fund_scanner.common_tools.others as o
+
 
 url = 'http://fund.eastmoney.com/%s.html'
 
 def read_funds_detail( funds_code='000001' ):
     print('reading ', funds_code)
     ret = {}
-    html = fund_scanner.readurl.simple_read_from_url(url%funds_code)
+    html = fund_scanner.common_tools.readurl.simple_read_from_url(url%funds_code)
     soup = BeautifulSoup(html, 'lxml')
     match = re.search('基金类型：(.*)', soup.select('div.infoOfFund td')[0].text)
     s = match.group(1)
@@ -44,7 +45,7 @@ def read_funds_detail( funds_code='000001' ):
     return ret
 
 
-with fund_scanner.database.get_connection() as cursor:
+with db.get_connection() as cursor:
 
     #Read records
     sql = 'select * from `funds` where 1 order by `update_time` limit 0,10;'
@@ -68,15 +69,15 @@ with fund_scanner.database.get_connection() as cursor:
                     'VALUES ('+'%s,'*10+' Now()) ON DUPLICATE KEY UPDATE '+\
                     '`'+('`=%s, `'.join(columns_to_update))+'`=%s, `update_time`=Now();'
 
-            funds_price = base.extract_percentage(dic,'funds_price')
-            funds_price_adjust = base.extract_percentage(dic,'funds_price_adjust')
-            funds_amount = base.extract_percentage(dic,'funds_amount')
-            recent_1_month = base.extract_percentage(dic,'recent_1_month')
-            recent_3_month = base.extract_percentage(dic,'recent_3_month')
-            recent_6_month = base.extract_percentage(dic,'recent_6_month')
-            recent_1_year = base.extract_percentage(dic,'recent_1_year')
-            recent_3_year = base.extract_percentage(dic,'recent_3_year')
-            recent_total = base.extract_percentage(dic,'recent_total')
+            funds_price = o.extract_percentage(dic,'funds_price')
+            funds_price_adjust = o.extract_percentage(dic,'funds_price_adjust')
+            funds_amount = o.extract_percentage(dic,'funds_amount')
+            recent_1_month = o.extract_percentage(dic,'recent_1_month')
+            recent_3_month = o.extract_percentage(dic,'recent_3_month')
+            recent_6_month = o.extract_percentage(dic,'recent_6_month')
+            recent_1_year = o.extract_percentage(dic,'recent_1_year')
+            recent_3_year = o.extract_percentage(dic,'recent_3_year')
+            recent_total = o.extract_percentage(dic,'recent_total')
             cursor.execute(sql, (int(item['funds_id']), 
                                  funds_price, funds_price_adjust, funds_amount,
                                  recent_1_month, recent_3_month, recent_6_month, recent_1_year, recent_3_year, recent_total, 
