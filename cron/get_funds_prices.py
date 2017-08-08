@@ -9,12 +9,15 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 import time
+import logging
 
 # my private modules
+import fund_scanner.common_tools.logger as logger
 import fund_scanner.common_tools.database as db
 import fund_scanner.common_tools.readurl
 import fund_scanner.common_tools.others as o
 
+log = logging.getLogger('get_funds_prices')
 
 url = 'http://fund.eastmoney.com/f10/F10DataApi.aspx?type=lsjz&code=%s&page=1&per=30&sdate=&edate=&rt='+str(time.time())
 
@@ -47,10 +50,11 @@ def load_funds_price(funds_code='540006', funds_id=4269):
                 cursor.execute(sql, (funds_id))
 
 with db.get_connection() as cursor:
-    sql = 'Select * from funds order by historical_price_time limit 0,10'
+    sql = 'Select * from funds order by historical_price_time limit 1'
     cursor.execute(sql)
     result = cursor.fetchall()
 
 for row in result:
     time.sleep(1)
+    log.info(row['funds_code'])
     load_funds_price(funds_code=row['funds_code'], funds_id=row['funds_id'])
