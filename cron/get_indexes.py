@@ -12,7 +12,7 @@ log = logging.getLogger('get_indexes')
 
 
 hour = datetime.datetime.now().hour
-if hour>8 and hour<16:
+if hour>8 and hour<15:
     print('Please run this file after 16:00.')
     exit(1)
 
