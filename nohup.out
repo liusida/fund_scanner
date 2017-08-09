@@ -1,0 +1,91 @@
+INFO: loading config from /home/liusida/VPNs/config.json
+2017-08-08 21:27:11 INFO     loading libcrypto from libcrypto.so.1.0.0
+2017-08-08 21:27:11 INFO     starting local at 127.0.0.1:1080
+INFO: loading config from /home/liusida/VPNs/config.json
+2017-08-08 21:27:15 INFO     loading libcrypto from libcrypto.so.1.0.0
+2017-08-08 21:27:15 INFO     starting local at 127.0.0.1:1080
+2017-08-08 21:27:26 INFO     connecting 4.2.2.2:53 from 127.0.0.1:51985
+2017-08-08 21:27:26 INFO     connecting 4.2.2.2:53 from 127.0.0.1:51984
+2017-08-08 21:27:26 INFO     connecting 4.2.2.2:53 from 127.0.0.1:51986
+2017-08-08 21:27:26 INFO     connecting 4.2.2.2:53 from 127.0.0.1:51987
+2017-08-08 21:27:26 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:26 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:26 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:26 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:26 INFO     connecting 4.2.2.2:53 from 127.0.0.1:51992
+2017-08-08 21:27:26 INFO     connecting 4.2.2.2:53 from 127.0.0.1:51994
+2017-08-08 21:27:26 INFO     connecting 4.2.2.2:53 from 127.0.0.1:51996
+2017-08-08 21:27:26 INFO     connecting 4.2.2.2:53 from 127.0.0.1:51998
+2017-08-08 21:27:27 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:27 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:27 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:27 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:27 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52000
+2017-08-08 21:27:27 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52003
+2017-08-08 21:27:27 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52002
+2017-08-08 21:27:27 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52006
+2017-08-08 21:27:28 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:28 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:28 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:28 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52008
+2017-08-08 21:27:28 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52010
+2017-08-08 21:27:28 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52012
+2017-08-08 21:27:28 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:28 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:28 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:28 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:28 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52014
+2017-08-08 21:27:28 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52016
+2017-08-08 21:27:29 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:29 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52018
+2017-08-08 21:27:29 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:29 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52020
+2017-08-08 21:27:30 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:30 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52022
+2017-08-08 21:27:30 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:38 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52024
+2017-08-08 21:27:39 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:45 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52026
+2017-08-08 21:27:45 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52028
+2017-08-08 21:27:45 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52030
+2017-08-08 21:27:45 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52032
+2017-08-08 21:27:45 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:45 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:45 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52034
+2017-08-08 21:27:45 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52036
+2017-08-08 21:27:45 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:45 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:45 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52038
+2017-08-08 21:27:45 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52040
+2017-08-08 21:27:46 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:46 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:46 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52042
+2017-08-08 21:27:46 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52044
+2017-08-08 21:27:46 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:46 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:46 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52046
+2017-08-08 21:27:46 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52048
+2017-08-08 21:27:46 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:46 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52050
+2017-08-08 21:27:46 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:46 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:46 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:46 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52052
+2017-08-08 21:27:46 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52053
+2017-08-08 21:27:46 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52056
+2017-08-08 21:27:47 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:47 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:47 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:47 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:47 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52058
+2017-08-08 21:27:47 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:47 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52060
+2017-08-08 21:27:48 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:48 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52062
+2017-08-08 21:27:49 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:27:49 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52064
+2017-08-08 21:27:50 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:28:10 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52080
+2017-08-08 21:28:11 ERROR    [Errno 104] Connection reset by peer
+2017-08-08 21:28:53 INFO     connecting 4.2.2.2:53 from 127.0.0.1:52083
+2017-08-08 21:28:53 ERROR    [Errno 104] Connection reset by peer

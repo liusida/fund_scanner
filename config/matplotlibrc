@@ -1,0 +1,4 @@
+font.serif          : YaHei Consolas Hybrid, Noto Serif CJK SC, DejaVu Serif
+font.sans-serif     : YaHei Consolas Hybrid, Noto Sans CJK SC, DejaVu Sans
+mathtext.cal        : YaHei Consolas Hybrid
+mathtext.fontset    : custom
