@@ -4,3 +4,4 @@ data/*.gz
 data/a_stock/
 tmp/
 .ipynb_checkpoints/
+.idea/
