@@ -1,4 +1,8 @@
 logs/*.log
 __pycache__/
 data/*.gz
+data/*.piclke
+data/a_stock/
 tmp/
+.ipynb_checkpoints/
+.idea/

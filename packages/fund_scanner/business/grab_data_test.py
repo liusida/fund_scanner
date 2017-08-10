@@ -12,11 +12,10 @@ class TestGetDataFromWebsite(unittest.TestCase):
 
     def test_get_funds(self):
         funds = target.get_funds(['512880', '000501', '180028', '540006'])
-        pp.pprint(funds)
         self.assertEqual(funds['512880']['funds_name_full'], '国泰中证全指证券公司ETF')
         self.assertEqual(funds['512880']['funds_type'], 'ETF-场内')
         self.assertEqual(funds['000501']['funds_type'], '固定收益')
-        self.assertEqual(funds['180028']['funds_type'], '保本型')
+        self.assertEqual(funds['180028']['funds_type'], '混合型')
         self.assertEqual(funds['540006']['funds_type'], '股票型')
 
     def test_write_funds_to_database(self):
