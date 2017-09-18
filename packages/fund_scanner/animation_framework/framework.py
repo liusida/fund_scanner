@@ -85,15 +85,16 @@ class FWDot(FWObject):
 
 
 class FWText(FWObject):
-    def __init__(self, text='default', fontsize=12, **kwargs):
+    def __init__(self, color=None, text='default', fontsize=12, **kwargs):
         self.text = text
         self.fontsize = fontsize
-        super().__init__(pos_z=5, **kwargs)
+        self.color = color
+        super().__init__(**kwargs)
 
     def init_artists(self):
         self.artists = [self.movie.ax.text(*self.position(), self.text, fontsize=self.fontsize,
                                            horizontalalignment='center', verticalalignment='center',
-                                           bbox=dict(facecolor='white', edgecolor=(0.8,0.8,0.8,1), alpha=0.4))]
+                                           bbox=dict(facecolor=self.color, edgecolor=(0.8,0.8,0.8,1), alpha=0.4))]
         return super().init_artists()
 
     def step(self):
@@ -197,7 +198,7 @@ class FWMovie():
     def set_rotate(self):
         self.rotate = True
         self.angles = np.linspace(0, 360, num=self.frame_num)
-        self.heights = np.concatenate( (np.linspace(0,30,num=self.frame_num/2), np.linspace(30,0,num=self.frame_num/2)), axis=0 )
+        self.heights = np.concatenate( (np.linspace(0,30,num=self.frame_num/2), np.linspace(30,0,num=self.frame_num/2+1)), axis=0 )
 
     def update(self, frame):
         """ Key Function for FuncAnimation.
