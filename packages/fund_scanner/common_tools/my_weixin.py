@@ -18,7 +18,7 @@ template_data = {
 pwd_path = os.path.join( os.path.expanduser('~') , '.config/weixin/secret.pwd' )
 
 with open(pwd_path, 'r') as f:
-	secret = f.read()
+	secret = f.read().strip()
 
 def send(msg='默认消息'):
     global template_data
