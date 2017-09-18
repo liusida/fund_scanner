@@ -1,4 +1,6 @@
 from wechatpy import WeChatClient
+import os
+
 app_id = 'wxdf080559f2573b5c'
 secret = ''
 userid = {}
@@ -13,7 +15,9 @@ template_data = {
     'remark': {'value': '', 'color': ''}
 }
 
-with open('secret.pwd', 'r') as f:
+pwd_path = os.path.join( os.path.expanduser('~') , '.config/weixin/secret.pwd' )
+
+with open(pwd_path, 'r') as f:
 	secret = f.read()
 
 def send(msg='默认消息'):
@@ -21,3 +25,6 @@ def send(msg='默认消息'):
     template_data['first']['value'] = msg
     client = WeChatClient(app_id, secret)
     client.message.send_template(userid['liusida'], template_id, template_data)
+
+if __name__ == '__main__':
+    send()
