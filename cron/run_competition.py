@@ -5,7 +5,7 @@ from IPython.display import display, HTML
 
 import base
 import fund_scanner.common_tools.database as db
-import fund_scanner.common_tools.myweixin as wx
+import fund_scanner.common_tools.my_weixin as wx
 
 engine = db.get_sqlalchemy_engine()
 #
